@@ -1,4 +1,3 @@
-// src/components/SocialLoginButton.jsx
 function SocialLoginButton({ provider, url }) {
   const config = {
     kakao: {
@@ -20,12 +19,12 @@ function SocialLoginButton({ provider, url }) {
   return (
     <a
       href={url}
-      className={`w-full h-12 ${bg} rounded-xl overflow-hidden shadow-md hover:opacity-90 transition`}
+      className={`w-full h-12 ${bg} rounded-xl overflow-hidden shadow-md hover:scale-[1.02] hover:opacity-90 transition-transform flex items-center justify-center px-4`}
     >
       <img
         src={logo}
         alt={`${provider} 로그인`}
-        className='w-full h-full object-contain'
+        className='h-11 object-contain'
       />
     </a>
   );
