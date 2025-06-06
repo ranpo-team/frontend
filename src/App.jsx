@@ -8,6 +8,7 @@ import CreatePollPage from './pages/poll/CreatePollPage';
 import PollDetailPage from './pages/poll/PollDetailPage';
 import Header from './components/Header';
 import PollListPage from './pages/poll/PollListPage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -23,8 +24,22 @@ function App() {
               element={<OAuth2RedirectHandler />}
             />
             <Route path='/polls' element={<PollListPage />} />
-            <Route path='/polls/:pollId' element={<PollDetailPage />} />
-            <Route path='/poll/create' element={<CreatePollPage />} />
+            <Route
+              path='/polls/:pollId'
+              element={
+                <PrivateRoute>
+                  <PollDetailPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/poll/create'
+              element={
+                <PrivateRoute>
+                  <CreatePollPage />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </main>
       </AuthProvider>
