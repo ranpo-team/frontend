@@ -45,7 +45,7 @@ const Alert = ({ message, type = 'info', isLeaving }) => {
   const styleMap = {
     info: {
       classes: 'bg-blue-100 text-blue-800 border-blue-300',
-      emoji: 'ℹ️',
+      emoji: '🌀',
     },
     success: {
       classes: 'bg-green-100 text-green-800 border-green-300',
@@ -60,12 +60,14 @@ const Alert = ({ message, type = 'info', isLeaving }) => {
   return (
     <div className='fixed top-5 inset-x-0 px-4 z-50 flex justify-center pointer-events-none'>
       <div
-        className={`max-w-md w-full border text-sm rounded-xl px-4 py-3 shadow-lg flex items-center gap-2 transition-all duration-300
-        ${styleMap[type].classes}
-        ${isLeaving ? 'animate-toastOut' : 'animate-toastIn'}`}
+        className={`max-w-md w-full border text-sm rounded-xl px-4 py-3 shadow-lg transition-all duration-300
+  ${styleMap[type].classes}
+  ${isLeaving ? 'animate-toastOut' : 'animate-toastIn'}`}
       >
-        <span className='text-lg'>{styleMap[type].emoji}</span>
-        <span className='flex-1'>{message}</span>
+        <div className='flex justify-center items-center gap-2 text-center'>
+          <span className='text-lg'>{styleMap[type].emoji}</span>
+          <span className='font-medium'>{message}</span>
+        </div>
       </div>
     </div>
   );
